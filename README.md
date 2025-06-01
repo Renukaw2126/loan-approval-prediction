@@ -8,3 +8,8 @@ Features
 3.Handles data preprocessing, scaling, and prediction
 
 4.User-friendly interface to input applicant details
+ 
+ ## Live Demo
+
+Check out the live app here: [Loan Approval Prediction System/Smart Loan Eligibility Checker](https://loan-approval-prediction-ltmjcqq4ghdirfazo5qrhj.streamlit.app/)
+
