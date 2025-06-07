@@ -6,7 +6,7 @@ model = pk.load(open('model.pkl','rb'))          # read binary access
 scaler = pk.load(open('scaler.pkl','rb'))    
 
 st.title = ('**Smart Loan Eligibility Checker**')
-st.title
+
 no_of_dep = st.slider('How many dependents do you have?',0,5)
 graduation = st.selectbox('Education',["",'Graduated','Not Graduated'])
 self_emp = st.selectbox('Are you Self-Employed ?',["",'Yes','No'])
@@ -35,12 +35,13 @@ else :
     self_emp_s = 1
 
 if st.button("predict"):
-     pred_data = pd.DataFrame([[ no_of_dep, graduation_s,self_emp_s,Annual_income,Loan_amount,Loan_Dur,cibil,Assets]],columns=['no_of_dependents','education','self_employed','income_annum','loan_amount','loan_term','cibil_score','Assets'])
-     pred_data= scaler.transform(pred_data)
-     predict = model.predict(pred_data)
+    pred_data = pd.DataFrame([[ no_of_dep, graduation_s, self_emp_s, Annual_income, Loan_amount, Loan_Dur, cibil, Assets]],
+                             columns=['no_of_dependents', 'education', 'self_employed', 'income_annum', 'loan_amount', 'loan_term', 'cibil_score', 'Assets'])
+    pred_data = scaler.transform(pred_data)
+    predict = model.predict(pred_data)
 
     if predict[0] == 1:
-         st.success('✅Loan Is Approved!!')
-     else:
+        st.success('✅Loan Is Approved!!')
+    else:
         st.error('❌Loan Is Rejected!!')
 
