@@ -12,7 +12,15 @@ graduation = st.selectbox('Education',["",'Graduated','Not Graduated'])
 self_emp = st.selectbox('Are you Self-Employed ?',["",'Yes','No'])
 Annual_income= st.slider('Choose Annual Income',0,10000000)
 Loan_amount= st.slider('Choose Loan Amount',0,10000000)
-Loan_Dur= st.slider('Choose Loan Duration',0,20)
+duration_type = st.radio("Select loan duration type:", ["Years", "Months"])
+if duration_type == "Years":
+    Loan_Dur_years = st.slider("Choose Loan Duration (in years):", 1, 30)
+    Loan_Dur = Loan_Dur_years * 12
+    st.text(f"Selected: {Loan_Dur_years} years ({Loan_Dur} months)")
+else:
+    Loan_Dur = st.slider("Choose Loan Duration (in months):", 6, 360, step=6)
+    st.text(f"Selected: {Loan_Dur // 12} years and {Loan_Dur % 12} months")
+
 cibil= st.slider('Choose cibil score',0,900)
 Assets = st.slider('Choose Assets',0,10000000)
 
@@ -31,9 +39,8 @@ if st.button("predict"):
      pred_data= scaler.transform(pred_data)
      predict = model.predict(pred_data)
 
-     if predict[0] == 1:
-         st.markdown('**Loan Is Approved!!**')
+    if predict[0] == 1:
+         st.success('✅Loan Is Approved!!')
      else:
-        st.markdown('**Loan Is Rejected!!**')
-         
+        st.error('❌Loan Is Rejected!!')
 
