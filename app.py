@@ -5,7 +5,7 @@ import pickle as pk
 model = pk.load(open('model.pkl','rb'))          # read binary access
 scaler = pk.load(open('scaler.pkl','rb'))    
 
-st.title('Smart Loan Eligibility Checker')
+st.title = 'Smart Loan Eligibility Checker'
 
 no_of_dep = st.slider('How many dependents do you have?',0,5)
 graduation = st.selectbox('Education',["",'Graduated','Not Graduated'])
