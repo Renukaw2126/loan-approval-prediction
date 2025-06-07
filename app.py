@@ -1,7 +1,8 @@
 import streamlit as st       # to create a simple web application
 import pandas as pd
 import pickle as pk
-st.title('Smart Loan Eligibility Checker')
+ title = st.title('Smart Loan Eligibility Checker')
+st.write("Smart Loan Eligibility Checker")
 model = pk.load(open('model.pkl','rb'))          # read binary access
 scaler = pk.load(open('scaler.pkl','rb'))    
 
