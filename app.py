@@ -13,7 +13,7 @@ self_emp = st.selectbox('Are you Self-Employed ?',["",'Yes','No'])
 Annual_income= st.slider('Choose Annual Income',0,10000000)
 Loan_amount= st.slider('Choose Loan Amount',0,10000000)
 Loan_Dur= st.slider('Choose Loan Duration',0,20)
-cibil= st.slider('Choose cibil score',0,1000)
+cibil= st.slider('Choose cibil score',0,900)
 Assets = st.slider('Choose Assets',0,10000000)
 
 if graduation == 'Graduated':
