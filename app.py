@@ -162,16 +162,16 @@ tab1, tab2, tab3 = st.tabs(["👤 Personal Info", "🏦 Loan Details", "🏠 Ass
 
 with tab1:
     st.markdown("<br>", unsafe_allow_html=True)
-    no_of_dep = st.slider('👨‍👩‍👧 Number of Dependents', 0, 5)
-    graduation = st.selectbox('🎓 Education Level', ["", 'Graduated', 'Not Graduated'])
-    self_emp = st.selectbox('💼 Are you Self Employed?', ["", 'Yes', 'No'])
-    Annual_income = st.slider('💵 Annual Income (₹)', 0, 10000000, step=100000, format="₹%d")
+    no_of_dep = st.slider(' Number of Dependents', 0, 5)
+    graduation = st.selectbox(' Education Level', ["", 'Graduated', 'Not Graduated'])
+    self_emp = st.selectbox(' Are you Self Employed?', ["", 'Yes', 'No'])
+    Annual_income = st.slider(' Annual Income (₹)', 0, 10000000, step=100000, format="₹%d")
     st.info("👉 Move to **Loan Details** tab to continue")
 
 with tab2:
     st.markdown("<br>", unsafe_allow_html=True)
-    Loan_amount = st.slider('🏦 Loan Amount Required (₹)', 0, 10000000, step=100000, format="₹%d")
-    duration_type = st.radio("⏱️ Loan Duration Type", ["Years", "Months"])
+    Loan_amount = st.slider(' Loan Amount Required (₹)', 0, 10000000, step=100000, format="₹%d")
+    duration_type = st.radio(" Loan Duration Type", ["Years", "Months"])
     if duration_type == "Years":
         Loan_Dur_years = st.slider("📅 Loan Duration (Years)", 1, 30)
         Loan_Dur = Loan_Dur_years * 12
@@ -201,7 +201,7 @@ else:
     self_emp_s = 1
 
 # Predict button
-if st.button("🔍 Check My Eligibility"):
+if st.button("Check My Eligibility"):
     if graduation == "" or self_emp == "":
         st.warning("⚠️ Please fill in all the fields before checking!")
     else:
